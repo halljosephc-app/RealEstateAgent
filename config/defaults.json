@@ -39,14 +39,28 @@
         "quarterAcre": 200,
         "halfAcre": 400,
         "threeQuarterAcre": 600,
-        "oneAcrePlus": 800
+        "oneToTwoAcres": 800,
+        "twoToFiveAcres": 1200,
+        "fiveToTenAcres": 1800,
+        "tenAcresPlus": 2500
       },
       "waterSurcharge": {
         "quarterAcre": 50,
         "halfAcre": 100,
         "threeQuarterAcre": 150,
-        "oneAcrePlus": 200
+        "oneToTwoAcres": 200,
+        "twoToFiveAcres": 350,
+        "fiveToTenAcres": 500,
+        "tenAcresPlus": 750
       }
+    },
+    "ruralPropertyCosts": {
+      "notes": "Additional monthly costs for rural/ranch properties (typically 5+ acres)",
+      "wellElectric": 75,
+      "propane": 150,
+      "septicMaintenance": 50,
+      "roadMaintenance": 100,
+      "additionalInsurance": 200
     }
   },
   "annualMaintenanceItems": {

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "region": "Southern California",
+    "region": "California",
     "lastUpdated": "2026-02",
-    "notes": "Costs reflect licensed contractor rates in LA/Ventura county area"
+    "notes": "Costs reflect licensed contractor rates in California. Bay Area typically 10-20% higher than SoCal."
   },
   "laborRates": {
     "general": {"low": 75, "high": 125, "unit": "hour"},
@@ -252,5 +252,45 @@
       "initial": {"low": 2000, "high": 5000},
       "annual": {"low": 500, "high": 1500}
     }
+  },
+  "well": {
+    "testing": {
+      "basic": {"low": 150, "high": 300, "notes": "Bacteria, nitrates"},
+      "comprehensive": {"low": 400, "high": 800, "notes": "Full panel including heavy metals"}
+    },
+    "pumpReplacement": {
+      "submersible": {"low": 1500, "high": 4000},
+      "jet": {"low": 800, "high": 2000}
+    },
+    "pressureTank": {"low": 500, "high": 1500},
+    "wellRehabilitation": {"low": 2000, "high": 6000, "notes": "Cleaning, redevelopment"},
+    "newWell": {"low": 15000, "high": 50000, "notes": "Highly variable based on depth and geology"},
+    "treatmentSystems": {
+      "waterSoftener": {"low": 1500, "high": 3500},
+      "filtration": {"low": 1000, "high": 3000},
+      "uvDisinfection": {"low": 500, "high": 1500},
+      "reverseOsmosis": {"low": 1500, "high": 4000}
+    },
+    "annualMaintenance": {"low": 200, "high": 500}
+  },
+  "septic": {
+    "inspection": {"low": 300, "high": 600},
+    "pumping": {"low": 300, "high": 600, "notes": "Every 3-5 years typically"},
+    "repair": {
+      "minor": {"low": 500, "high": 2000, "notes": "Baffles, lids, risers"},
+      "moderate": {"low": 2000, "high": 8000, "notes": "Pipe repairs, distribution box"},
+      "major": {"low": 5000, "high": 15000, "notes": "Partial drainfield repair"}
+    },
+    "replacement": {
+      "conventional": {"low": 15000, "high": 30000},
+      "alternative": {"low": 25000, "high": 50000, "notes": "Mound, aerobic, or advanced systems"},
+      "engineered": {"low": 30000, "high": 75000, "notes": "Challenging sites, permits"}
+    },
+    "drainfield": {
+      "repair": {"low": 3000, "high": 10000},
+      "replacement": {"low": 8000, "high": 25000}
+    },
+    "permits": {"low": 500, "high": 2000},
+    "perc_test": {"low": 500, "high": 1500, "notes": "Percolation test for new systems"}
   }
 }

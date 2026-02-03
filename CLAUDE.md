@@ -31,6 +31,25 @@ Process source documents in this order for best results:
 4. **Pest/Termite Reports** - Process chronologically to identify recurring issues
 5. **Disclosures** - Legal and historical context
 
+### Handling Different PDF Types
+
+**Text-based PDFs:** Standard PDF reader tools work well. Most MLS listings, newer inspection reports.
+
+**Scanned/Image-based PDFs:** If a PDF reader returns empty or minimal content, the PDF is likely image-based:
+1. Use Claude's native `Read` tool which can interpret image content directly
+2. Run the OCR script: `python scripts/ocr_pdfs.py ./input/`
+3. For disclosure forms (TDS, SPQ), the native Read tool often works better than text extraction
+
+**Large PDFs (50+ pages):** Process in chunks of 10-15 pages. Extract findings to a list after each chunk.
+
+### Properties Without Pest Reports
+
+Not all properties have dedicated termite/pest inspection reports. If no pest report is provided:
+1. Check the home inspection for pest-related findings (rodent evidence, wood damage, termite tubes)
+2. Review the Seller Property Questionnaire (SPQ) - Section 11 covers pests/animals
+3. Look for pest control service mentions in disclosures
+4. Note "No dedicated pest report provided" in outputs and recommend buyer obtain one before closing
+
 ---
 
 ## Cost Estimation Rules
@@ -41,13 +60,14 @@ Process source documents in this order for best results:
 - Low = optimistic/DIY-friendly scenario
 - High = worst case/full professional service
 
-### California (SoCal) Contractor Rates
+### California Contractor Rates
 Reference `@config/cost-estimates.json` for specific costs. General guidelines:
-- Labor: $75-150/hour
+- Labor: $75-150/hour (Bay Area typically 10-20% higher)
 - Permits: Add 10-15% for any work over $500
 - Lead paint (pre-1978): Add 15% premium
 - Hillside/difficult access: Add 20% premium
 - Large homes (3000+ sqft): Add 10% premium
+- Rural properties: Add 10-15% for travel time
 
 ### Cost Categories (Priority Tiers)
 
@@ -144,6 +164,48 @@ For borderline issues, recommend price reductions:
 - Minor unpermitted work: -$15,000 to -$25,000
 - Sewer line damage: -$15,000 to -$25,000
 - Full rewiring needed: -$15,000 to -$25,000
+
+---
+
+## Rural & Large Lot Properties
+
+### Private Well Considerations
+
+Properties with private wells require additional due diligence:
+
+| Item | Action | Walk-Away? |
+|------|--------|------------|
+| Water testing | Test for bacteria, nitrates, heavy metals | If contaminated and untreatable |
+| Water pressure | Normal: 40-80 PSI. Below 30 PSI = problem | If below 20 PSI |
+| Well age/condition | Ask for well log, service records | If no records and pump failing |
+| Flow rate | Minimum 3-5 GPM for household use | If insufficient flow |
+
+**Cost references:** See `@config/cost-estimates.json` under "well" section.
+
+### Septic System Considerations
+
+| Item | Action | Walk-Away? |
+|------|--------|------------|
+| Septic inspection | Required before purchase | If failing or non-compliant |
+| Pump records | When was it last pumped? | N/A |
+| Drain field | Any wet spots, odors? | If field failing |
+| System type | Conventional vs alternative? | Budget accordingly |
+
+**Cost references:** See `@config/cost-estimates.json` under "septic" section.
+
+### Large Lot Premiums (5+ Acres)
+
+Large properties have significantly higher carrying costs:
+
+| Cost Category | Monthly Premium |
+|---------------|-----------------|
+| Landscaping/maintenance | $1,000 - $2,500 |
+| Water (irrigation) | $200 - $500 |
+| Fire clearance (if required) | $100 - $300 |
+| Equipment/fuel | $100 - $300 |
+| Additional insurance | $100 - $300 |
+
+**Always calculate 5-year carrying costs for large lots.** A 10-acre property may cost $15,000-$30,000/year MORE than a standard suburban home.
 
 ---
 
