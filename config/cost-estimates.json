@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "region": "Southern California",
+    "lastUpdated": "2026-02",
+    "notes": "Costs reflect licensed contractor rates in LA/Ventura county area"
+  },
+  "laborRates": {
+    "general": {"low": 75, "high": 125, "unit": "hour"},
+    "electrical": {"low": 85, "high": 150, "unit": "hour"},
+    "plumbing": {"low": 90, "high": 150, "unit": "hour"},
+    "hvac": {"low": 100, "high": 175, "unit": "hour"}
+  },
+  "premiums": {
+    "leadPaint": {
+      "multiplier": 1.15,
+      "applies": "Pre-1978 homes",
+      "notes": "Lead-safe work practices required"
+    },
+    "asbestos": {
+      "multiplier": 1.25,
+      "applies": "Homes with vermiculite, old insulation, popcorn ceilings",
+      "notes": "Abatement protocols required"
+    },
+    "hillside": {
+      "multiplier": 1.20,
+      "applies": "Sloped lots, difficult access",
+      "notes": "Equipment access, safety requirements"
+    },
+    "largeHome": {
+      "multiplier": 1.10,
+      "applies": "Over 3,000 sqft",
+      "notes": "More materials, longer labor"
+    },
+    "permits": {
+      "multiplier": 1.12,
+      "applies": "Any work over $500",
+      "notes": "Permit fees, inspection time"
+    }
+  },
+  "electrical": {
+    "panelReplacement": {
+      "standard200amp": {"low": 3500, "high": 6000},
+      "upgrade100to200": {"low": 4000, "high": 7000},
+      "fpeOrZinsco": {"low": 4500, "high": 7500, "notes": "Fire hazard panels, urgent"}
+    },
+    "rewiring": {
+      "perSqFt": {"low": 8, "high": 15},
+      "wholeHouse1500sqft": {"low": 12000, "high": 22500},
+      "wholeHouse2500sqft": {"low": 20000, "high": 37500},
+      "wholeHouse3500sqft": {"low": 28000, "high": 52500}
+    },
+    "outlets": {
+      "replaceExisting": {"low": 150, "high": 300, "unit": "each"},
+      "addNew": {"low": 250, "high": 500, "unit": "each"},
+      "gfci": {"low": 175, "high": 350, "unit": "each"}
+    },
+    "junctionBoxes": {
+      "repair": {"low": 150, "high": 300, "unit": "each"},
+      "notes": "Open/exposed boxes are code violations"
+    },
+    "smokeDetectors": {
+      "hardwired": {"low": 150, "high": 250, "unit": "each"},
+      "interconnected": {"low": 800, "high": 1500, "notes": "Whole house system"}
+    },
+    "coDetectors": {
+      "hardwired": {"low": 150, "high": 250, "unit": "each"},
+      "combined": {"low": 175, "high": 300, "unit": "each", "notes": "Smoke+CO combo"}
+    }
+  },
+  "plumbing": {
+    "waterHeater": {
+      "standard50gal": {"low": 1500, "high": 2500},
+      "tankless": {"low": 3000, "high": 5000},
+      "relocation": {"low": 500, "high": 1500, "notes": "Additional if moving location"}
+    },
+    "repipe": {
+      "wholeHouse1500sqft": {"low": 8000, "high": 15000},
+      "wholeHouse2500sqft": {"low": 12000, "high": 22000},
+      "partialRepipe": {"low": 3000, "high": 8000}
+    },
+    "sewerLine": {
+      "inspection": {"low": 300, "high": 500},
+      "repair": {"low": 3000, "high": 8000},
+      "replacement": {"low": 8000, "high": 25000},
+      "notes": "Highly variable based on length and access"
+    },
+    "drainCleaning": {
+      "mainLine": {"low": 200, "high": 500},
+      "withCamera": {"low": 300, "high": 600}
+    },
+    "fixtures": {
+      "toilet": {"low": 300, "high": 600, "unit": "each"},
+      "faucet": {"low": 200, "high": 500, "unit": "each"},
+      "showerValve": {"low": 400, "high": 800}
+    }
+  },
+  "roofing": {
+    "inspection": {"low": 200, "high": 400},
+    "repair": {
+      "minor": {"low": 500, "high": 1500},
+      "moderate": {"low": 1500, "high": 4000},
+      "major": {"low": 4000, "high": 10000}
+    },
+    "replacement": {
+      "asphaltShingle": {
+        "perSquare": {"low": 350, "high": 500, "notes": "100 sqft = 1 square"},
+        "typical2000sqft": {"low": 15000, "high": 25000},
+        "typical3000sqft": {"low": 22000, "high": 37000}
+      },
+      "tile": {
+        "perSquare": {"low": 600, "high": 1000},
+        "typical2000sqft": {"low": 25000, "high": 40000},
+        "typical3000sqft": {"low": 35000, "high": 55000}
+      },
+      "metal": {
+        "perSquare": {"low": 500, "high": 800},
+        "typical2000sqft": {"low": 20000, "high": 32000}
+      }
+    },
+    "gutters": {
+      "cleaning": {"low": 100, "high": 250},
+      "repair": {"low": 200, "high": 600},
+      "replacement": {
+        "perLinearFoot": {"low": 8, "high": 15},
+        "typicalHome": {"low": 1500, "high": 3000}
+      }
+    }
+  },
+  "hvac": {
+    "inspection": {"low": 100, "high": 200},
+    "repair": {
+      "minor": {"low": 200, "high": 600},
+      "moderate": {"low": 600, "high": 1500},
+      "major": {"low": 1500, "high": 4000}
+    },
+    "replacement": {
+      "centralAC": {"low": 5000, "high": 10000},
+      "furnace": {"low": 3000, "high": 6000},
+      "completeSplit": {"low": 8000, "high": 15000},
+      "ductwork": {"low": 3000, "high": 8000}
+    },
+    "ageConsiderations": {
+      "under10years": "Good condition expected",
+      "10to15years": "Budget for replacement within 5 years",
+      "15to20years": "Replacement imminent, add $15K-$30K contingency",
+      "over20years": "Likely needs immediate replacement"
+    }
+  },
+  "windows": {
+    "repair": {"low": 150, "high": 400, "unit": "each"},
+    "replacement": {
+      "standardVinyl": {"low": 500, "high": 800, "unit": "each"},
+      "premiumVinyl": {"low": 700, "high": 1100, "unit": "each"},
+      "wood": {"low": 800, "high": 1500, "unit": "each"}
+    },
+    "wholeHouseEstimates": {
+      "10windows": {"low": 5000, "high": 11000},
+      "15windows": {"low": 7500, "high": 16500},
+      "20windows": {"low": 10000, "high": 22000},
+      "25windows": {"low": 12500, "high": 27500},
+      "30windows": {"low": 15000, "high": 33000}
+    }
+  },
+  "foundation": {
+    "inspection": {"low": 400, "high": 800},
+    "crackRepair": {
+      "minor": {"low": 500, "high": 1500},
+      "moderate": {"low": 2000, "high": 5000},
+      "major": {"low": 5000, "high": 15000}
+    },
+    "underpinning": {"low": 10000, "high": 30000},
+    "fullReplacement": {"low": 30000, "high": 100000, "notes": "Rare, major structural issue"},
+    "seismicRetrofit": {
+      "bolting": {"low": 3000, "high": 7000},
+      "cripplewallBracing": {"low": 4000, "high": 10000},
+      "complete": {"low": 5000, "high": 15000}
+    }
+  },
+  "pest": {
+    "inspection": {"low": 100, "high": 200},
+    "termiteTreatment": {
+      "local": {"low": 500, "high": 1500},
+      "wholehouse": {"low": 1500, "high": 3500},
+      "fumigation": {"low": 2500, "high": 5000}
+    },
+    "damageRepair": {
+      "minor": {"low": 500, "high": 2000},
+      "moderate": {"low": 2000, "high": 8000},
+      "major": {"low": 8000, "high": 25000}
+    },
+    "rodentControl": {
+      "exclusion": {"low": 500, "high": 2000},
+      "cleanup": {"low": 500, "high": 3000},
+      "insulation replacement": {"low": 2000, "high": 6000}
+    }
+  },
+  "safety": {
+    "asbestosAbatement": {
+      "testing": {"low": 200, "high": 600},
+      "popcornCeiling": {"low": 3, "high": 7, "unit": "sqft"},
+      "insulation": {"low": 2000, "high": 8000},
+      "floorTile": {"low": 2000, "high": 5000}
+    },
+    "leadPaint": {
+      "testing": {"low": 200, "high": 500},
+      "encapsulation": {"low": 2000, "high": 5000},
+      "removal": {"low": 5000, "high": 15000}
+    },
+    "radon": {
+      "testing": {"low": 100, "high": 200},
+      "mitigation": {"low": 1000, "high": 2500}
+    }
+  },
+  "exterior": {
+    "painting": {
+      "perSqFt": {"low": 2, "high": 4},
+      "typical2000sqft": {"low": 5000, "high": 10000},
+      "typical3000sqft": {"low": 7000, "high": 15000}
+    },
+    "siding": {
+      "repair": {"low": 500, "high": 2000},
+      "replacement": {
+        "vinyl": {"low": 6000, "high": 12000},
+        "fiber cement": {"low": 10000, "high": 20000},
+        "wood": {"low": 12000, "high": 25000}
+      }
+    },
+    "deck": {
+      "repair": {"low": 500, "high": 2000},
+      "replacement": {"low": 5000, "high": 15000}
+    },
+    "driveway": {
+      "repair": {"low": 500, "high": 2000},
+      "reseal": {"low": 300, "high": 800},
+      "replacement": {"low": 3000, "high": 10000}
+    }
+  },
+  "trees": {
+    "arboristConsultation": {"low": 300, "high": 600},
+    "trimming": {
+      "small": {"low": 200, "high": 500, "unit": "each"},
+      "medium": {"low": 400, "high": 800, "unit": "each"},
+      "large": {"low": 600, "high": 1500, "unit": "each"}
+    },
+    "removal": {
+      "small": {"low": 500, "high": 1000},
+      "medium": {"low": 1000, "high": 3000},
+      "large": {"low": 2000, "high": 8000},
+      "stumpGrinding": {"low": 150, "high": 400}
+    },
+    "fireZoneClearance": {
+      "initial": {"low": 2000, "high": 5000},
+      "annual": {"low": 500, "high": 1500}
+    }
+  }
+}

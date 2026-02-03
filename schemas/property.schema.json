@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Property Analysis Data",
+  "description": "Structured data extracted from property documents for analysis",
+  "type": "object",
+  "properties": {
+    "property": {
+      "type": "object",
+      "description": "Basic property information",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {"type": "string"},
+            "city": {"type": "string"},
+            "state": {"type": "string"},
+            "zip": {"type": "string"}
+          },
+          "required": ["street", "city", "state", "zip"]
+        },
+        "yearBuilt": {"type": "integer"},
+        "squareFeet": {"type": "integer"},
+        "lotSizeAcres": {"type": "number"},
+        "bedrooms": {"type": "integer"},
+        "bathrooms": {"type": "number"},
+        "stories": {"type": "integer"},
+        "garageSpaces": {"type": "integer"},
+        "foundationType": {"type": "string"},
+        "roofType": {"type": "string"},
+        "construction": {"type": "string"},
+        "pool": {"type": "boolean"},
+        "septic": {"type": "boolean"},
+        "well": {"type": "boolean"}
+      },
+      "required": ["address", "squareFeet", "bedrooms", "bathrooms"]
+    },
+    "listing": {
+      "type": "object",
+      "description": "MLS listing information",
+      "properties": {
+        "mlsNumber": {"type": "string"},
+        "listPrice": {"type": "integer"},
+        "originalListPrice": {"type": "integer"},
+        "pricePerSqFt": {"type": "number"},
+        "listDate": {"type": "string", "format": "date"},
+        "daysOnMarket": {"type": "integer"},
+        "priceHistory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {"type": "string", "format": "date"},
+              "price": {"type": "integer"},
+              "event": {"type": "string", "enum": ["listed", "price_change", "pending", "back_on_market", "sold"]}
+            }
+          }
+        },
+        "previousEscrowFailed": {"type": "boolean"},
+        "listingAgent": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "phone": {"type": "string"},
+            "email": {"type": "string"},
+            "brokerage": {"type": "string"}
+          }
+        }
+      }
+    },
+    "climate": {
+      "type": "object",
+      "description": "Climate and natural hazard information",
+      "properties": {
+        "fireRisk": {
+          "type": "object",
+          "properties": {
+            "zone": {"type": "string"},
+            "riskLevel": {"type": "string", "enum": ["low", "moderate", "high", "very_high"]},
+            "percentage": {"type": "integer"}
+          }
+        },
+        "floodZone": {"type": "string"},
+        "earthquakeFault": {"type": "boolean"},
+        "landslideRisk": {"type": "string"}
+      }
+    },
+    "comparables": {
+      "type": "array",
+      "description": "Comparable sales data",
+      "items": {
+        "type": "object",
+        "properties": {
+          "address": {"type": "string"},
+          "bedrooms": {"type": "integer"},
+          "bathrooms": {"type": "number"},
+          "squareFeet": {"type": "integer"},
+          "lotSizeAcres": {"type": "number"},
+          "yearBuilt": {"type": "integer"},
+          "soldDate": {"type": "string", "format": "date"},
+          "soldPrice": {"type": "integer"},
+          "pricePerSqFt": {"type": "number"},
+          "distanceMiles": {"type": "number"},
+          "condition": {"type": "string"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "marketAnalysis": {
+      "type": "object",
+      "description": "Local market context",
+      "properties": {
+        "medianPrice": {"type": "integer"},
+        "medianPricePerSqFt": {"type": "number"},
+        "avgDaysOnMarket": {"type": "integer"},
+        "inventoryMonths": {"type": "number"},
+        "marketCondition": {"type": "string", "enum": ["buyers", "balanced", "sellers"]}
+      }
+    },
+    "buyerProfile": {
+      "type": "object",
+      "description": "Information about the prospective buyer",
+      "properties": {
+        "type": {"type": "string", "enum": ["retirement", "family", "investor", "first_time", "relocation"]},
+        "description": {"type": "string"},
+        "maxBudget": {"type": "integer"},
+        "cashAvailable": {"type": "integer"},
+        "toleranceForWork": {"type": "string", "enum": ["low", "medium", "high"]},
+        "preApproved": {"type": "boolean"},
+        "loanType": {"type": "string"},
+        "downPaymentPercent": {"type": "number"},
+        "flexibleTimeline": {"type": "boolean"}
+      }
+    },
+    "knownIssues": {
+      "type": "array",
+      "description": "Issues identified before full analysis",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {"type": "string"},
+          "verified": {"type": "boolean"},
+          "isCritical": {"type": "boolean"},
+          "isWalkAway": {"type": "boolean"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "analysisDate": {"type": "string", "format": "date"},
+    "analyst": {"type": "string"}
+  },
+  "required": ["property", "listing", "buyerProfile", "analysisDate"]
+}

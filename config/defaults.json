@@ -1,0 +1,78 @@
+{
+  "financialAssumptions": {
+    "interestRate": 0.065,
+    "downPaymentPercent": 0.20,
+    "propertyTaxRate": 0.011,
+    "closingCostPercent": 0.025,
+    "inflationRate": 0.03,
+    "maintenanceReservePercent": 0.01,
+    "annualAppreciation": 0.03
+  },
+  "insuranceRates": {
+    "standard": {
+      "annual": 2500,
+      "notes": "Standard homeowners in low-risk area"
+    },
+    "moderateFireRisk": {
+      "annual": 4000,
+      "notes": "Moderate fire zone, may need FAIR plan"
+    },
+    "highFireRisk": {
+      "annual": 6000,
+      "notes": "High fire zone, likely FAIR plan required"
+    },
+    "veryHighFireRisk": {
+      "annual": 8000,
+      "notes": "Very high fire zone, FAIR plan + brush clearance"
+    }
+  },
+  "monthlyExpenseDefaults": {
+    "utilities": {
+      "electric": 150,
+      "gas": 75,
+      "water": 100,
+      "trash": 50,
+      "internet": 80
+    },
+    "largeLotPremiums": {
+      "landscaping": {
+        "quarterAcre": 200,
+        "halfAcre": 400,
+        "threeQuarterAcre": 600,
+        "oneAcrePlus": 800
+      },
+      "waterSurcharge": {
+        "quarterAcre": 50,
+        "halfAcre": 100,
+        "threeQuarterAcre": 150,
+        "oneAcrePlus": 200
+      }
+    }
+  },
+  "annualMaintenanceItems": {
+    "hvacService": 200,
+    "gutterCleaning": 150,
+    "pestControl": 400,
+    "treeTrimming": {
+      "fewTrees": 500,
+      "manyTrees": 1500,
+      "largeLot": 2500
+    },
+    "fireZoneBrushClearance": 1000
+  },
+  "loanTerms": {
+    "conventional30yr": {
+      "termYears": 30,
+      "minDownPayment": 0.05,
+      "typicalDownPayment": 0.20,
+      "pmiThreshold": 0.20
+    },
+    "jumboThreshold": 766550
+  },
+  "negotiationDefaults": {
+    "typicalEarnestMoney": 0.03,
+    "typicalClosingDays": 30,
+    "inspectionContingencyDays": 17,
+    "appraisalContingencyDays": 21
+  }
+}

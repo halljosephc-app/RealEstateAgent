@@ -1,0 +1,35 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# macOS archive artifacts
+__MACOSX/
+
+# Large PDF source files in example (too big for git)
+# The example OUTPUT markdown files ARE included (they're the patterns)
+example/input/**/*.pdf
+example/input/*.pdf
+
+# Extracted text files (can be regenerated)
+example/extracted/
+
+# Generated PDFs (users generate these locally from markdown)
+example/output/*.pdf
+
+# IDE
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Python
+*.pyc
+__pycache__/
+.env
+venv/

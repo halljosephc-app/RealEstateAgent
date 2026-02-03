@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Inspection Findings",
+  "description": "Structured extraction of findings from inspection and pest reports",
+  "type": "object",
+  "properties": {
+    "inspectionInfo": {
+      "type": "object",
+      "properties": {
+        "inspectorName": {"type": "string"},
+        "company": {"type": "string"},
+        "inspectionDate": {"type": "string", "format": "date"},
+        "reportDate": {"type": "string", "format": "date"},
+        "reportPages": {"type": "integer"},
+        "licenseNumber": {"type": "string"}
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "description": "Section/item reference from report (e.g., '5.3', 'Item 4A')"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["CRITICAL", "MAJOR", "MODERATE", "MINOR"],
+            "description": "Severity category"
+          },
+          "system": {
+            "type": "string",
+            "enum": [
+              "electrical",
+              "plumbing",
+              "roof",
+              "hvac",
+              "foundation",
+              "structural",
+              "exterior",
+              "interior",
+              "insulation",
+              "ventilation",
+              "appliances",
+              "safety",
+              "pest",
+              "other"
+            ]
+          },
+          "location": {
+            "type": "string",
+            "description": "Where in the property (e.g., 'Master bathroom', 'Attic', 'Garage')"
+          },
+          "issue": {
+            "type": "string",
+            "description": "Brief description of the problem"
+          },
+          "details": {
+            "type": "string",
+            "description": "Full inspector notes and observations"
+          },
+          "recommendation": {
+            "type": "string",
+            "description": "Inspector's recommended action"
+          },
+          "costEstimate": {
+            "type": "object",
+            "properties": {
+              "low": {"type": "integer"},
+              "high": {"type": "integer"},
+              "notes": {"type": "string"},
+              "source": {
+                "type": "string",
+                "enum": ["contractor_quote", "cost_database", "estimate"],
+                "description": "Where cost came from"
+              }
+            }
+          },
+          "isSafetyHazard": {
+            "type": "boolean",
+            "description": "Poses immediate safety risk"
+          },
+          "isCodeViolation": {
+            "type": "boolean",
+            "description": "Violates building/safety code"
+          },
+          "isWalkAwayTrigger": {
+            "type": "boolean",
+            "description": "Should buyer walk away if not resolved"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["before_move_in", "within_30_days", "within_90_days", "within_year", "budget_over_time"],
+            "description": "When this should be addressed"
+          },
+          "photos": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "References to photos in inspection report"
+          }
+        },
+        "required": ["category", "system", "issue"]
+      }
+    },
+    "pestHistory": {
+      "type": "array",
+      "description": "Chronological pest/termite report history",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reportDate": {"type": "string", "format": "date"},
+          "company": {"type": "string"},
+          "reportType": {
+            "type": "string",
+            "enum": ["inspection", "treatment", "completion", "supplemental"]
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "item": {"type": "string"},
+                "location": {"type": "string"},
+                "type": {
+                  "type": "string",
+                  "enum": ["drywood_termite", "subterranean_termite", "fungus", "rodent", "other"]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["found", "treated", "completed", "not_completed", "further_inspection_needed"]
+                },
+                "cost": {"type": "integer"}
+              }
+            }
+          },
+          "totalCost": {"type": "integer"},
+          "warranty": {
+            "type": "object",
+            "properties": {
+              "years": {"type": "integer"},
+              "coverage": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "recurringIssues": {
+      "type": "array",
+      "description": "Issues that appear in multiple reports",
+      "items": {
+        "type": "object",
+        "properties": {
+          "issue": {"type": "string"},
+          "occurrences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {"type": "string"},
+                "date": {"type": "string", "format": "date"},
+                "details": {"type": "string"}
+              }
+            }
+          },
+          "trend": {
+            "type": "string",
+            "enum": ["improving", "stable", "worsening"]
+          },
+          "rootCauseIdentified": {"type": "boolean"},
+          "rootCauseFixed": {"type": "boolean"},
+          "totalSpent": {"type": "integer"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "costSummary": {
+      "type": "object",
+      "description": "Aggregated cost estimates by category",
+      "properties": {
+        "tier1_critical": {
+          "type": "object",
+          "properties": {
+            "low": {"type": "integer"},
+            "high": {"type": "integer"},
+            "items": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "tier2_major": {
+          "type": "object",
+          "properties": {
+            "low": {"type": "integer"},
+            "high": {"type": "integer"},
+            "items": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "tier3_moderate": {
+          "type": "object",
+          "properties": {
+            "low": {"type": "integer"},
+            "high": {"type": "integer"},
+            "items": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "tier4_minor": {
+          "type": "object",
+          "properties": {
+            "low": {"type": "integer"},
+            "high": {"type": "integer"},
+            "items": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "total": {
+          "type": "object",
+          "properties": {
+            "low": {"type": "integer"},
+            "high": {"type": "integer"}
+          }
+        },
+        "contingencies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {"type": "string"},
+              "low": {"type": "integer"},
+              "high": {"type": "integer"},
+              "probability": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "walkAwayTriggers": {
+      "type": "array",
+      "description": "Issues that should cause buyer to walk away",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trigger": {"type": "string"},
+          "reason": {"type": "string"},
+          "canBeNegotiated": {"type": "boolean"},
+          "negotiationAmount": {"type": "integer"}
+        }
+      }
+    },
+    "contractorQuotes": {
+      "type": "array",
+      "description": "Professional quotes received",
+      "items": {
+        "type": "object",
+        "properties": {
+          "contractor": {"type": "string"},
+          "license": {"type": "string"},
+          "trade": {"type": "string"},
+          "quoteDate": {"type": "string", "format": "date"},
+          "scope": {"type": "string"},
+          "amount": {"type": "integer"},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  },
+  "required": ["findings", "costSummary"]
+}

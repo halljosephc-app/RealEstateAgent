@@ -1,0 +1,88 @@
+{
+  "oddNumberPricing": {
+    "enabled": true,
+    "description": "Use specific odd numbers to signal careful analysis",
+    "psychology": "Round numbers feel arbitrary. Odd numbers suggest precise calculation.",
+    "preferredEndings": [3, 7],
+    "examples": {
+      "good": ["$973,000", "$997,000", "$1,047,000", "$1,093,000"],
+      "avoid": ["$975,000", "$1,000,000", "$1,050,000", "$1,100,000"]
+    },
+    "roundingBehavior": "down",
+    "roundingNotes": "When converting round numbers to odd, round DOWN (more aggressive opening)"
+  },
+  "openingOfferStrategy": {
+    "distressedProperty": {
+      "definition": "120+ days on market, multiple price drops, failed escrows",
+      "discountFromList": 0.20,
+      "discountRange": [0.18, 0.25],
+      "notes": "Seller is motivated, market has rejected current price"
+    },
+    "staleProperty": {
+      "definition": "60-120 days on market, 1-2 price drops",
+      "discountFromList": 0.12,
+      "discountRange": [0.10, 0.15],
+      "notes": "Property has issues or is overpriced"
+    },
+    "normalProperty": {
+      "definition": "Under 60 days, competitively priced",
+      "discountFromList": 0.05,
+      "discountRange": [0.03, 0.08],
+      "notes": "Standard negotiation"
+    },
+    "hotProperty": {
+      "definition": "Under 14 days, multiple offers expected",
+      "discountFromList": 0,
+      "notes": "May need to offer at or above list"
+    }
+  },
+  "marketTimeDiscounts": {
+    "description": "Additional discount based on days on market",
+    "thresholds": {
+      "0-30": 0,
+      "31-60": 0,
+      "61-90": 10000,
+      "91-120": 25000,
+      "121-150": 40000,
+      "151+": 50000
+    },
+    "notes": "Extended time signals problems. Each threshold adds to opening discount."
+  },
+  "priceDropPenalty": {
+    "description": "Each price drop signals seller desperation",
+    "perDrop": 5000,
+    "maxDrops": 5,
+    "notes": "3+ drops = highly motivated seller"
+  },
+  "failedEscrowPenalty": {
+    "description": "Previous buyer found something wrong",
+    "penalty": 25000,
+    "notes": "Always ask why previous buyer backed out"
+  },
+  "maximumOfferFormula": {
+    "method1_repairDeduction": {
+      "formula": "ListPrice - DocumentedRepairs - MarketTimeDiscount - RiskPremium",
+      "riskPremiumItems": [
+        {"item": "Unpermitted work suspected", "amount": 15000},
+        {"item": "Insurance difficulty", "amount": 10000},
+        {"item": "Recurring pest issues", "amount": 15000},
+        {"item": "Foundation concerns", "amount": 25000}
+      ]
+    },
+    "method2_comparableSales": {
+      "formula": "ComparableAvg_PricePerSqFt * SubjectSqFt - ConditionAdjustment",
+      "conditionAdjustments": {
+        "excellent": 0,
+        "good": -25000,
+        "fair": -75000,
+        "poor": -150000
+      }
+    },
+    "convergenceRule": "Both methods should produce similar results. If >10% apart, investigate."
+  },
+  "firmMaximumRule": {
+    "description": "Maximum offer is FIRM. Beyond this, move-in ready is better value.",
+    "bufferPercent": 0.05,
+    "notes": "Add 5% buffer below calculated fair value for negotiation room"
+  }
+}
