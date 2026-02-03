@@ -20,7 +20,7 @@ Give it property documents (inspections, MLS listings, pest reports, contractor 
 
 ```bash
 cd ~/Documents
-git clone https://github.com/yourusername/RealEstateAgent.git
+git clone https://github.com/halljosephc-app/RealEstateAgent.git
 ```
 
 Or download and extract to your Documents folder.
