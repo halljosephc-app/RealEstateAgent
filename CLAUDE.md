@@ -370,6 +370,44 @@ Recommend this language for permits:
 
 ---
 
+## Pre-Output Data Verification
+
+**CRITICAL**: Before generating any output documents, confirm you have verified data for each item below. If ANY item is missing or unverified, it MUST be flagged prominently in Document 1 (START HERE) and Document 3 (Pre-Offer Checklist).
+
+### Required Verifications
+
+| Category | Item | Source Documents | If Missing |
+|----------|------|------------------|------------|
+| **Pest/Termite** | Current infestation status | Pest report, OR inspection findings, OR SPQ Section 11 | Flag: "No pest report - obtain before closing" |
+| **Sewer/Septic** | System type and condition | Disclosure, inspection, or sewer lateral inspection | Flag: "Sewer/septic status unknown - verify" |
+| **Water Source** | City water OR well test results | MLS listing, disclosure, or well test report | Flag: "Well water untested - require testing" |
+| **Roof** | Age, condition, remaining life | Inspection report, seller disclosure | Flag: "Roof condition unverified" |
+| **HVAC** | Age, operational status, tested? | Inspection report (check if A/C was tested) | Flag: "HVAC not tested - require evaluation" |
+| **Electrical Panel** | Panel type (FPE/Zinsco = critical) | Inspection report | If FPE/Zinsco: Immediate safety flag |
+| **Foundation** | Cracks, settling, water intrusion | Inspection report | Flag any concerns prominently |
+| **Insurance** | Fire zone, availability | NHD report, fire zone maps | If high fire zone: "Verify insurance availability" |
+
+### Missing Document Flags
+
+If these documents are not provided, note in outputs and recommend buyer obtain:
+
+| Document | Risk if Missing |
+|----------|-----------------|
+| Pest/Termite Report | Hidden infestation, wood damage costs |
+| Sewer Lateral Inspection | $8K-$25K surprise replacement |
+| Well Water Test | Health hazards, treatment system costs |
+| Septic Inspection | $15K-$75K replacement if failing |
+| Roof Inspection (for older roofs) | $15K-$40K surprise replacement |
+| HVAC Evaluation (if old/untested) | $8K-$15K surprise replacement |
+
+### Verification Outcome
+
+After checking all items, your Document 1 should either:
+1. **All verified**: No critical warning box needed
+2. **Items missing**: Prominent warning box listing what needs verification before offer
+
+---
+
 ## Quality Checklist
 
 Before finalizing outputs, verify:
